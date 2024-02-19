@@ -11,10 +11,19 @@
     - 9, 17
 */
 
-function swap(x, y){
-    // Task 1: Add code here
+function swap(x, y) {
+  // Task 1: Add code here
+  if ((typeof x == "number") & (typeof y == "number")) {
+    temp = x;
+    x = y;
+    y = temp;
+    console.log("x =", x, "y=", y);
+  } else {
+    console.log(-1);
+  }
 }
 
 // Task 2: Add code here
-
+swap("Apple", 10);
+swap(9, 17);
 module.exports = swap;

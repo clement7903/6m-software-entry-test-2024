@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Addition Calculator</title>    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Addition Calculator</title>
     <script type="text/javascript">
-        function add(){
-            const num1 = document.querySelector("#num1").value;
-            const num2 = document.querySelector("#num2").value;
-            const answer = num1 + num2;
-            document.querySelector("#answer").innerText = answer;
+      function add() {
+        const num1 = document.querySelector("#num1").value;
+        const num2 = document.querySelector("#num2").value;
+
+        if (isNumericAndPositive(num1) && isNumericAndPositive(num2)) {
+          alert("Valid input!");
+        } else {
+          alert("Invalid input! Please enter a numeric and positive value.");
         }
+        const answer = parseInt(num1) + parseInt(num2);
+        document.querySelector("#answer").innerText = answer;
+      }
+
+      function isNumericAndPositive(value) {
+        // Check if the value is numeric and positive
+        return !isNaN(value) && parseInt(value) >= 0;
+      }
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <!-- 
         Task 1: Apply type casting to fix this bug inside the add() function.
 
@@ -32,9 +43,11 @@
 
     -->
     <form>
-        <input type="number" placeholder="Number 1" id="num1" /> + <input type="number" placeholder="Number 2" id="num2" /> = <span id="answer"></span>
-        <br />
-        <input type="button" value="Submit" onclick="add()" /> 
+      <input type="number" placeholder="Number 1" id="num1" /> +
+      <input type="number" placeholder="Number 2" id="num2" /> =
+      <span id="answer"></span>
+      <br />
+      <input type="button" value="Submit" onclick="add()" />
     </form>
-</body>
+  </body>
 </html>
